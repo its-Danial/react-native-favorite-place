@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { View, Text, Pressable } from "react-native";
+import { Pressable, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import tw from "twrnc";
 
@@ -19,8 +19,8 @@ const OutlineButton: FC<OutlineButtonProps> = (props) => {
         }`
       }
     >
-      <Ionicons style={tw`m-[6px]`} name={props.icon} size={21} color={tw.color("gray-300")} />
-      <Text style={tw`text-gray-300 font-bold text-sm`}>{props.children}</Text>
+      <Ionicons style={tw`m-[6px]`} name={props.icon} size={21} color={tw.color("gray-200")} />
+      <Text style={tw`text-gray-200 font-bold text-sm`}>{props.children}</Text>
     </Pressable>
   );
 };

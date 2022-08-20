@@ -16,7 +16,7 @@ const ImagePicker: FC<ImagePickerProps> = (props) => {
 
       return permissionResponse.granted;
     }
-    if (cameraPermissionsInfo?.status === PermissionStatus.GRANTED) {
+    if (cameraPermissionsInfo?.status === PermissionStatus.DENIED) {
       Alert.alert("Insufficient permissions", "You need to grant camera permissions to use the applications");
       return false;
     } else {

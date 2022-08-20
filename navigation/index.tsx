@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import tw from "twrnc";
 import IconButton from "../components/UI/IconButton";
 import AddPlacesScreen from "../screens/AddPlacesScreen";
 import AllPlacesScreen from "../screens/AllPlacesScreen";
-import tw from "twrnc";
+import MapScreen from "../screens/MapScreen";
 import { RootStackParamList } from "../types";
-import { LinearGradient } from "expo-linear-gradient";
 
 export default function Navigation() {
   return (
@@ -43,6 +43,7 @@ function RootNavigator() {
         })}
       />
       <Stack.Screen name="AddPlaces" component={AddPlacesScreen} options={{ title: "Add a New Place" }} />
+      <Stack.Screen name="Map" component={MapScreen} options={{ title: "", headerTintColor: "black" }} />
     </Stack.Navigator>
   );
 }
