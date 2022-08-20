@@ -7,9 +7,10 @@ import { LocationType } from "../../models/Place";
 import { RootStackParamList } from "../../types";
 import OutlineButton from "../UI/OutlineButton";
 import Map from "./Map";
+import { getAddressFromCoordinates } from "../../utils/ReverseGeocoding";
 
 type LocationPickerProps = {
-  onPickLocation: (location: LocationType | undefined) => void;
+  onPickLocation: (location: (LocationType & { address: string }) | undefined) => void;
 };
 
 const LocationPicker: FC<LocationPickerProps> = (props) => {
@@ -28,7 +29,13 @@ const LocationPicker: FC<LocationPickerProps> = (props) => {
   }, [route, isScreenFocused]);
 
   useEffect(() => {
-    props.onPickLocation(pickedLocation);
+    const handleAddress = async () => {
+      if (pickedLocation) {
+        const address: string = await getAddressFromCoordinates(pickedLocation as LocationType);
+        props.onPickLocation({ ...(pickedLocation as LocationType), address: address });
+      }
+    };
+    handleAddress();
   }, [pickedLocation, props.onPickLocation]);
 
   const verifyPermissions = async () => {

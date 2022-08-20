@@ -1,5 +1,5 @@
 import { FC, useCallback, useState } from "react";
-import { View, Text, ScrollView, TextInput } from "react-native";
+import { ScrollView, Text, TextInput, View } from "react-native";
 import tw from "twrnc";
 import { LocationType } from "../../models/Place";
 import Button from "../UI/Button";
@@ -11,7 +11,7 @@ type PlaceFormProps = {};
 const PlaceForm: FC<PlaceFormProps> = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState<LocationType>();
+  const [selectedLocation, setSelectedLocation] = useState<LocationType & { address: string }>();
 
   const textChangeHandler = (enteredValue: string) => {
     setEnteredTitle(enteredValue);
@@ -21,13 +21,14 @@ const PlaceForm: FC<PlaceFormProps> = (props) => {
     setSelectedImage(imageUri);
   };
 
-  const pickLocationHandler = useCallback((location: LocationType | undefined) => {
+  const pickLocationHandler = useCallback((location: (LocationType & { address: string }) | undefined) => {
     setSelectedLocation(location);
   }, []);
 
   const savePlaceHandler = () => {
-    console.log(enteredTitle);
-    console.log(selectedImage);
+    // console.log(enteredTitle);
+    // console.log(selectedImage);
+    // console.log(selectedLocation);
     console.log(selectedLocation);
   };
   return (
