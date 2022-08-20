@@ -21,7 +21,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerTintColor: tw.color("sky-400"),
+        headerTintColor: tw.color("sky-300"),
         headerTransparent: true,
       }}
     >

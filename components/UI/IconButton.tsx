@@ -15,7 +15,7 @@ const IconButton: FC<IconButtonProps> = (props) => {
     <Pressable
       style={({ pressed }) => [
         tw`p-1 m-1 justify-center items-center rounded-full`,
-        pressed && tw`opacity-60 bg-gray-100`,
+        pressed && tw`opacity-60 bg-zinc-700`,
       ]}
       onPress={props.onPress}
     >
