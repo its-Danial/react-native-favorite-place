@@ -1,10 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import * as React from "react";
+import IconButton from "../components/UI/IconButton";
 import AddPlacesScreen from "../screens/AddPlacesScreen";
 import AllPlacesScreen from "../screens/AllPlacesScreen";
-
+import tw from "twrnc";
 import { RootStackParamList } from "../types";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Navigation() {
   return (
@@ -18,9 +19,30 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="AllPlaces" component={AllPlacesScreen} />
-      <Stack.Screen name="AddPlaces" component={AddPlacesScreen} />
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: tw.color("sky-400"),
+        headerTransparent: true,
+      }}
+    >
+      <Stack.Screen
+        name="AllPlaces"
+        component={AllPlacesScreen}
+        options={({ navigation }) => ({
+          title: "Your Favorite Places",
+          headerRight: ({ tintColor }) => (
+            <IconButton
+              color={tintColor}
+              name="add"
+              size={28}
+              onPress={() => {
+                navigation.navigate("AddPlaces");
+              }}
+            />
+          ),
+        })}
+      />
+      <Stack.Screen name="AddPlaces" component={AddPlacesScreen} options={{ title: "Add a New Place" }} />
     </Stack.Navigator>
   );
 }

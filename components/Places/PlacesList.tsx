@@ -14,7 +14,7 @@ const PlacesList: FC<PlacesListProps> = (props) => {
   if (!props.places || props.places.length === 0) {
     return (
       <View style={tw`flex-1 justify-center items-center`}>
-        <Text style={tw`text-lg text-center`}>No places added yet - start adding some!</Text>
+        <Text style={tw`text-base text-center`}>No places added yet - start adding some!</Text>
       </View>
     );
   }
