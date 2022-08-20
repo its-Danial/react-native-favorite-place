@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Pressable, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { Pressable, Text } from "react-native";
 import tw from "twrnc";
 
 type OutlineButtonProps = {
@@ -14,7 +14,7 @@ const OutlineButton: FC<OutlineButtonProps> = (props) => {
     <Pressable
       onPress={props.onPress}
       style={({ pressed }) =>
-        tw`px-3 py-[6px] my-2 justify-center items-center flex-row bg-sky-600 rounded shadow-md ${
+        tw`px-3 py-[4px] my-2 justify-center items-center flex-row bg-sky-600 rounded shadow-md ${
           pressed ? "opacity-70" : ""
         }`
       }

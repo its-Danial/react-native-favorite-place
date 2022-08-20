@@ -3,7 +3,10 @@ import { Alert, Image, Text, View } from "react-native";
 import { launchCameraAsync, PermissionStatus, useCameraPermissions } from "expo-image-picker";
 import tw from "twrnc";
 import OutlineButton from "../UI/OutlineButton";
-type ImagePickerProps = {};
+
+type ImagePickerProps = {
+  onPickImage: (imageUri: string) => void;
+};
 
 const ImagePicker: FC<ImagePickerProps> = (props) => {
   const [cameraPermissionsInfo, requestPermission] = useCameraPermissions();
@@ -38,6 +41,8 @@ const ImagePicker: FC<ImagePickerProps> = (props) => {
     console.log(image);
     // @ts-ignore
     setPickedImage(image.uri);
+    // @ts-ignore
+    props.onPickImage(image.uri);
   };
 
   let imagePreview = <Text style={tw`text-gray-400`}>No image taken yet.</Text>;
