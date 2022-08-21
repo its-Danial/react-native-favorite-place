@@ -4,13 +4,13 @@ export type LocationType = {
 };
 
 export class Place {
-  id: string;
+  id: number;
   title: string;
   imageUri: string;
   address: string;
   location: LocationType;
-  constructor(title: string, imageUri: string, address: string, location: LocationType) {
-    this.id = new Date().toString() + Math.random().toString();
+  constructor(id: number, title: string, imageUri: string, address: string, location: LocationType) {
+    this.id = id;
     this.title = title;
     this.imageUri = imageUri;
     this.address = address;

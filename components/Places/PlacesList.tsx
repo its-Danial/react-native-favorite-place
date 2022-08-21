@@ -5,11 +5,13 @@ import PlaceItem from "./PlaceItem";
 import tw from "twrnc";
 
 type PlacesListProps = {
-  places?: Place[];
+  places: Place[];
 };
 
 const PlacesList: FC<PlacesListProps> = (props) => {
-  const onSelectHandler = (id: string) => {};
+  const onSelectHandler = (id: number) => {
+    console.log(id);
+  };
 
   if (!props.places || props.places.length === 0) {
     return (
@@ -21,8 +23,9 @@ const PlacesList: FC<PlacesListProps> = (props) => {
 
   return (
     <FlatList
+      style={tw`mx-3 my-6`}
       data={props.places}
-      keyExtractor={({ id }) => id}
+      keyExtractor={({ id }) => id.toString()}
       renderItem={({ item }) => <PlaceItem onSelect={onSelectHandler} place={item} />}
     />
   );

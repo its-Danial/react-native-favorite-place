@@ -9,7 +9,7 @@ declare global {
 
 export type RootStackParamList = {
   AddPlaces: { pickedLocation: LocationType };
-  AllPlaces: { place: Place };
+  AllPlaces: undefined;
   Map: undefined;
   PlaceDetails: undefined;
 };

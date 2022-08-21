@@ -48,7 +48,9 @@ const PlaceForm: FC<PlaceFormProps> = (props) => {
       </View>
       <ImagePicker onPickImage={pickImageHandler} />
       <LocationPicker onPickLocation={pickLocationHandler} />
-      <Button onPress={savePlaceHandler}>Save</Button>
+      <View style={tw`mb-14`}>
+        <Button onPress={savePlaceHandler}>Save</Button>
+      </View>
     </ScrollView>
   );
 };
