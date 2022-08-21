@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import { Place } from "../../models/Place";
+import tw from "twrnc";
 
 type PlaceItemProps = {
   place: Place;
@@ -15,7 +16,7 @@ const PlaceItem: FC<PlaceItemProps> = ({ place, onSelect }) => {
     <Pressable onPress={onPressHandler}>
       <Image source={{ uri: place.imageUri }} />
       <View>
-        <Text>{place.title}</Text>
+        <Text style={tw`text-lg text-white`}>{place.title}</Text>
         <Text>{place.address}</Text>
       </View>
     </Pressable>

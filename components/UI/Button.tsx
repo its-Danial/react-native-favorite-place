@@ -13,7 +13,9 @@ const Button: FC<ButtonProps> = (props) => {
     <Pressable
       onPress={props.onPress}
       style={({ pressed }) =>
-        tw` my-2 justify-center items-center flex-row overflow-hidden rounded shadow-md ${pressed ? "opacity-70" : ""}`
+        tw` my-2 justify-center items-center flex-row overflow-hidden rounded-md shadow-md ${
+          pressed ? "opacity-70" : ""
+        }`
       }
     >
       <LinearGradient

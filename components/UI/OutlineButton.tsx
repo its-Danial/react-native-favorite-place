@@ -14,7 +14,7 @@ const OutlineButton: FC<OutlineButtonProps> = (props) => {
     <Pressable
       onPress={props.onPress}
       style={({ pressed }) =>
-        tw`px-3 py-[4px] my-2 justify-center items-center flex-row bg-sky-600 rounded shadow-md ${
+        tw`px-3 py-[4px] my-2 justify-center items-center flex-row bg-sky-600 rounded-md shadow-md ${
           pressed ? "opacity-70" : ""
         }`
       }

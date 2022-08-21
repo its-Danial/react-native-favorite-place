@@ -1,5 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { LocationType } from "./models/Place";
+import { LocationType, Place } from "./models/Place";
 
 declare global {
   namespace ReactNavigation {
@@ -9,7 +9,7 @@ declare global {
 
 export type RootStackParamList = {
   AddPlaces: { pickedLocation: LocationType };
-  AllPlaces: undefined;
+  AllPlaces: { place: Place };
   Map: undefined;
   PlaceDetails: undefined;
 };

@@ -59,7 +59,7 @@ const LocationPicker: FC<LocationPickerProps> = (props) => {
     setLocationIsLoading(true);
 
     const location = await getCurrentPositionAsync();
-    console.log(location);
+
     setPickedLocation({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
@@ -73,7 +73,9 @@ const LocationPicker: FC<LocationPickerProps> = (props) => {
 
   return (
     <View>
-      <View style={tw`relative w-full h-52 my-2 justify-center items-center rounded bg-gray-800 shadow-gray-400 `}>
+      <View
+        style={tw`relative w-full h-52 my-2 justify-center items-center rounded-md overflow-hidden bg-gray-800 shadow-gray-400 `}
+      >
         <Map pickedLocation={pickedLocation} allowSelect={false} />
         {locationIsLoading && <ActivityIndicator style={tw`absolute`} size="large" color={tw.color("sky-200")} />}
       </View>

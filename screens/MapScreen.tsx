@@ -14,7 +14,6 @@ const MapScreen: FC<MapScreenProps> = (props) => {
 
   const onSelectLocationHandler = (newLocation: LocationType) => {
     setPickedLocation(newLocation);
-    console.log();
   };
 
   const onSavedPickedLocationHandler = useCallback(() => {

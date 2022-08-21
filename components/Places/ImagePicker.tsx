@@ -38,7 +38,7 @@ const ImagePicker: FC<ImagePickerProps> = (props) => {
       aspect: [16, 9],
       quality: 0.5,
     });
-    console.log(image);
+
     // @ts-ignore
     setPickedImage(image.uri);
     // @ts-ignore
@@ -48,12 +48,14 @@ const ImagePicker: FC<ImagePickerProps> = (props) => {
   let imagePreview = <Text style={tw`text-gray-400`}>No image taken yet.</Text>;
 
   if (pickedImage) {
-    imagePreview = <Image style={tw`w-full h-full rounded`} source={{ uri: pickedImage }} />;
+    imagePreview = <Image style={tw`w-full h-full rounded-md`} source={{ uri: pickedImage }} />;
   }
 
   return (
     <View>
-      <View style={tw`w-full h-52 my-2 justify-center items-center rounded bg-gray-800 shadow-gray-400 `}>
+      <View
+        style={tw`w-full h-52 my-2 justify-center items-center rounded-md overflow-hidden bg-gray-800 shadow-gray-400 `}
+      >
         {imagePreview}
       </View>
       <OutlineButton icon={"camera"} onPress={takeImageHandler}>
