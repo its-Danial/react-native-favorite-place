@@ -3,14 +3,17 @@ import { FlatList, View, Text } from "react-native";
 import { Place } from "../../models/Place";
 import PlaceItem from "./PlaceItem";
 import tw from "twrnc";
+import { useNavigation } from "@react-navigation/native";
 
 type PlacesListProps = {
   places: Place[];
 };
 
 const PlacesList: FC<PlacesListProps> = (props) => {
+  const navigation = useNavigation();
+
   const onSelectHandler = (id: number) => {
-    console.log(id);
+    navigation.navigate("PlaceDetails", { placeId: id });
   };
 
   if (!props.places || props.places.length === 0) {

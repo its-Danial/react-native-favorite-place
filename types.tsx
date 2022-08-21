@@ -10,8 +10,8 @@ declare global {
 export type RootStackParamList = {
   AddPlaces: { pickedLocation: LocationType };
   AllPlaces: undefined;
-  Map: undefined;
-  PlaceDetails: undefined;
+  Map: { initialLocation: LocationType };
+  PlaceDetails: { placeId: number };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

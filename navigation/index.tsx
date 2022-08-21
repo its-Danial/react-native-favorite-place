@@ -5,6 +5,7 @@ import IconButton from "../components/UI/IconButton";
 import AddPlacesScreen from "../screens/AddPlacesScreen";
 import AllPlacesScreen from "../screens/AllPlacesScreen";
 import MapScreen from "../screens/MapScreen";
+import PlaceDetailsScreen from "../screens/PlaceDetailsScreen";
 import { RootStackParamList } from "../types";
 
 export default function Navigation() {
@@ -44,6 +45,7 @@ function RootNavigator() {
       />
       <Stack.Screen name="AddPlaces" component={AddPlacesScreen} options={{ title: "Add a New Place" }} />
       <Stack.Screen name="Map" component={MapScreen} options={{ title: "", headerTintColor: "black" }} />
+      <Stack.Screen name="PlaceDetails" component={PlaceDetailsScreen} options={{ title: "Loading..." }} />
     </Stack.Navigator>
   );
 }

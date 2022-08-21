@@ -5,6 +5,7 @@ import tw from "twrnc";
 import { LocationType } from "../../models/Place";
 
 type MapProps = {
+  haveIntialLocation: boolean;
   pickedLocation: LocationType | undefined;
   onLocationChange?: (newLocation: LocationType) => void;
   allowSelect: boolean;
@@ -47,7 +48,7 @@ const Map: FC<MapProps> = (props) => {
           <Marker
             coordinate={props.pickedLocation}
             pinColor={tw.color("sky-300")}
-            draggable={true}
+            draggable={!props.haveIntialLocation || !props.allowSelect}
             onDragEnd={onLocationChangeHandler}
           >
             <Callout>

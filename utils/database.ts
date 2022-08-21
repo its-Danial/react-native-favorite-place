@@ -84,3 +84,29 @@ export const fetchPlacesFromDatabase = () => {
   });
   return promise;
 };
+
+export const fetchPlaceDetailsFromDb = (id: number) => {
+  const promise = new Promise((resolve, reject) => {
+    database.transaction((transaction) =>
+      transaction.executeSql(
+        `
+    SELECT * FROM places WHERE id = ?`,
+        [id],
+        (_, resultSet) => {
+          const fetchedPlace = resultSet.rows._array[0];
+          const place = new Place(fetchedPlace.id, fetchedPlace.title, fetchedPlace.imageUri, fetchedPlace.address, {
+            longitude: fetchedPlace.longitude,
+            latitude: fetchedPlace.latitude,
+          });
+
+          resolve(place);
+        },
+        // @ts-ignore
+        (_, error) => {
+          reject(error);
+        }
+      )
+    );
+  });
+  return promise;
+};
